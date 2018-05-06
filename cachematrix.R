@@ -7,7 +7,7 @@
 #  3. setinv is to use the inverse function to inverse the result
 #  4. getinv is to get the inversed result of setinv
 makeCacheMatrix <- function(x = matrix()) {
-		m <- NULL
+        m <- NULL
         set <- function(y) {
                 x <<- y
                 m <<- NULL
@@ -22,16 +22,19 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## Write a short comment describing this function
+#  1. retrieve inverse value
+#  2. validate if inverse value is computed, if yes return inverse value if not compute
+#  3. retrieve matrix value
+#  4. the call compute inverse function 
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
-		m <- x$getinv()
+        m <- x$getinv()
         if(!is.null(m)) {
                 message("getting cached data")
                 return(m)
         }
-        data <- x$get()
-        m <- data
+        m <- x$get()
         x$setinv(m)
         m
 }
